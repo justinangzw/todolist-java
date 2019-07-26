@@ -37,9 +37,7 @@ public class Main
 		System.out.println("View All Tasks - There are currently " + tal.size() + " tasks in the list:");
 
 		for (Task t : tal)
-		{
 			System.out.println("Task: " + t.getDescription() + ", Completed: " + t.isComplete());
-		}
 	}
 	
 	public static void viewCompletedTasks()
@@ -49,9 +47,7 @@ public class Main
 		System.out.println("View Completed Tasks - There are currently " + tal.size() + " completed tasks in the list:");
 
 		for (Task t : tal)
-		{
 			System.out.println("Task: " + t.getDescription());
-		}
 	}
 
 	public static void deleteTask(Scanner in)
@@ -124,7 +120,5 @@ public class Main
 
 			System.out.println("");
 		}
-
 	}
-
 }
