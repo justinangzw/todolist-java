@@ -4,6 +4,11 @@ import java.util.Scanner;
 public class Main
 {
 	static ToDoList tdl;
+	
+	private static Task getTask(String desc)
+	{
+		return tdl.getTask(desc);
+	}
 
 	public static boolean addTask(String description)
 	{
@@ -33,6 +38,18 @@ public class Main
 
 		for (Task t : tal)
 		{
+			System.out.println("Task: " + t.getDescription() + ", Completed: " + t.isComplete());
+		}
+	}
+	
+	public static void viewCompletedTasks()
+	{
+		Collection<Task> tal = tdl.getCompletedTasks();
+
+		System.out.println("View Completed Tasks - There are currently " + tal.size() + " completed tasks in the list:");
+
+		for (Task t : tal)
+		{
 			System.out.println("Task: " + t.getDescription());
 		}
 	}
@@ -48,6 +65,20 @@ public class Main
 		if (t != null)
 			System.out.println("Successfully removed task: " + t.getDescription());
 	}
+	
+	public static void completeTask(Scanner in)
+	{
+		System.out.print("Complete Task - Enter a task description to complete: ");
+		
+		String taskDesc = in.nextLine();
+		
+		tdl.completeTask(taskDesc);
+		
+		if (getTask(taskDesc).isComplete())
+			System.out.println("Successfully completed task: " + taskDesc);
+		else
+			System.out.println("There was an error completing task: " + taskDesc);
+	}
 
 	public static void main(String[] args)
 	{
@@ -58,8 +89,10 @@ public class Main
 		{
 			System.out.println("To Do List Application :D");
 			System.out.println("1. Add Task");
-			System.out.println("2. View Tasks");
-			System.out.println("3. Delete Task");
+			System.out.println("2. View All Tasks");
+			System.out.println("3. View Completed Tasks");
+			System.out.println("4. Complete Task");
+			System.out.println("5. Delete Task");
 			System.out.println("99. Exit Application");
 			System.out.print("Please enter the what you would like to do: ");
 
@@ -75,6 +108,12 @@ public class Main
 				viewTasks();
 				break;
 			case 3:
+				viewCompletedTasks();
+				break;
+			case 4:
+				completeTask(in);
+				break;
+			case 5:
 				deleteTask(in);
 				break;
 			case 99:
