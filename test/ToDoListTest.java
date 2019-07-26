@@ -82,8 +82,7 @@ public class ToDoListTest extends TestCase
 	{
 		tdl.addTask(t);
 		assertFalse(tdl.getAllTasks().isEmpty());
-		Task testT = tdl.getTask(t.getDescription());
-		testT.setDescription(updateDesc);
+		tdl.updateTask(t, updateDesc);
 		assertEquals(updateDesc,t.getDescription());
 
 	}
