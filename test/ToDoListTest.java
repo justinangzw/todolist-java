@@ -12,6 +12,7 @@ public class ToDoListTest extends TestCase
  ////i am here testing the code
 	//hi i am bing
 	final String tDesc = "This do be a task mateys";
+	final String updateDesc = "I have been updated matey";
 
 	public ToDoListTest()
 	{
@@ -74,5 +75,16 @@ public class ToDoListTest extends TestCase
 		tdl.completeTask(tDesc);
 		cTask = tdl.getCompletedTasks();
 		assertFalse(cTask.isEmpty());
+	}
+	
+	@Test
+	public void testUpdateTask()
+	{
+		tdl.addTask(t);
+		assertFalse(tdl.getAllTasks().isEmpty());
+		Task testT = tdl.getTask(t.getDescription());
+		testT.setDescription(updateDesc);
+		assertEquals(updateDesc,t.getDescription());
+
 	}
 }
