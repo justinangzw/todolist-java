@@ -2,11 +2,20 @@ import java.util.Scanner;
 
 public class Main
 {
-	public static void main(String[] args)
-	{
-		// TODO Auto-generated method stub
-		Scanner in = new Scanner(System.in);
+	ToDoList tdl;
 
+	public void addTask(String description)
+	{
+		addTask(new Task(description, false));
+	}
+
+	public void addTask(Task t)
+	{
+		tdl.addTask(t);
+	}
+
+	static void doMain(Scanner in)
+	{
 		for (;;)
 		{
 			System.out.println("To Do List Application :D");
@@ -18,13 +27,23 @@ public class Main
 
 			int a = in.nextInt();
 
-			if (a == 99)
+			switch (a)
+			{
+			case 1:
 				break;
-			
-			// System.out.println("You entered integer " + a);
+			case 99:
+				return;
+			}
 		}
+	}
 
+	public static void main(String[] args)
+	{
+		Scanner in = new Scanner(System.in);
+		doMain(in);
 		in.close();
+		
+		System.out.println("Exited, goodbye! :)");
 	}
 
 }
