@@ -6,9 +6,9 @@ public class ToDoList
 {
 	private HashMap<String, Task> tasks = new HashMap<String, Task>();
 
-	public void addTask(Task task)
+	public boolean addTask(Task task)
 	{
-		tasks.put(task.getDescription(), task);
+		return (tasks.put(task.getDescription(), task) == null) ? true : false;
 	}
 
 	public void completeTask(String description)
