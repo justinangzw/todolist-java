@@ -45,4 +45,12 @@ public class ToDoList
 
 		return hComplTasks.values();
 	}
+	
+	public void updateTask(Task task,String newDesc)
+	{
+		Task t = tasks.get(task.getDescription());
+		t.setDescription(newDesc);
+		
+		
+	}
 }
