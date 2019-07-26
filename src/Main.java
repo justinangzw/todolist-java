@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Scanner;
 
 public class Main
@@ -24,6 +26,18 @@ public class Main
 			System.out.println("Oops, there was an error adding your task :(");
 	}
 
+	public static void viewTasks()
+	{
+		Collection<Task> tal = tdl.getAllTasks();
+		
+		System.out.println("View All Tasks - There are currently " + tal.size() + " tasks in the list:");
+		
+		for(Task t : tal)
+		{
+			System.out.println("Task: " + t.getDescription());
+		}
+	}
+
 	public static void main(String[] args)
 	{
 		tdl = new ToDoList();
@@ -45,6 +59,9 @@ public class Main
 			{
 			case 1:
 				addTask(in);
+				break;
+			case 2:
+				viewTasks();
 				break;
 			case 99:
 				in.close();
