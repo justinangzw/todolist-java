@@ -1,13 +1,14 @@
-
 public class Task
 {
 	private String description = null;
 	private boolean isComplete = false;
+	private TASK_PRIORITY priority;
 
 	public Task(String description)
 	{
 		super();
 		this.description = description;
+		this.priority = TASK_PRIORITY.LOW;
 	}
 
 	public Task(String description, boolean isComplete)
@@ -15,6 +16,7 @@ public class Task
 		super();
 		this.description = description;
 		this.isComplete = isComplete;
+		this.priority = TASK_PRIORITY.LOW;
 	}
 
 	public String getDescription()
@@ -37,4 +39,13 @@ public class Task
 		this.isComplete = isComplete;
 	}
 
+	public TASK_PRIORITY getPriority()
+	{
+		return this.priority;
+	}
+	
+	public void setPriority(TASK_PRIORITY p)
+	{
+		this.priority = p;
+	}
 }

@@ -9,8 +9,8 @@ public class ToDoListTest extends TestCase
 	// Define Test Fixtures
 	ToDoList tdl;
 	Task t;
- ////i am here testing the code
-	//hi i am bing
+	//// i am here testing the code
+	// hi i am bing
 	final String tDesc = "This do be a task mateys";
 	final String updateDesc = "I have been updated matey";
 
@@ -76,7 +76,7 @@ public class ToDoListTest extends TestCase
 		cTask = tdl.getCompletedTasks();
 		assertFalse(cTask.isEmpty());
 	}
-	
+
 	@Test
 	public void testUpdateTask()
 	{
@@ -84,7 +84,16 @@ public class ToDoListTest extends TestCase
 		assertFalse(tdl.getAllTasks().isEmpty());
 		Task testT = tdl.getTask(t.getDescription());
 		testT.setDescription(updateDesc);
-		assertEquals(updateDesc,t.getDescription());
+		assertEquals(updateDesc, t.getDescription());
 
+	}
+
+	@Test
+	public void testUpdateTaskPriority()
+	{
+		tdl.addTask(t);
+		assertEquals(TASK_PRIORITY.LOW, tdl.getTask(tDesc).getPriority());
+		tdl.updatePriority(t.getDescription(), TASK_PRIORITY.HIGH);
+		assertEquals(TASK_PRIORITY.HIGH, tdl.getTask(tDesc).getPriority());
 	}
 }

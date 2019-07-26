@@ -53,4 +53,11 @@ public class ToDoList
 		
 		
 	}
+	
+	public void updatePriority(String desc, TASK_PRIORITY prio)
+	{
+		Task t = getTask(desc);
+		t.setPriority(prio);
+		tasks.replace(desc, t);
+	}
 }
