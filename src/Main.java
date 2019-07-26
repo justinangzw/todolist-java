@@ -1,4 +1,7 @@
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main
@@ -75,6 +78,16 @@ public class Main
 		else
 			System.out.println("There was an error completing task: " + taskDesc);
 	}
+	
+	public static void viewInCompleteTasks()
+	{
+		Collection<Task> tal = tdl.getInCompleteTasks();
+		for (Task t : tal)
+		{
+			System.out.println("Task: " + t.getDescription());
+		}
+	}
+	
 
 	public static void main(String[] args)
 	{
@@ -111,6 +124,9 @@ public class Main
 				break;
 			case 5:
 				deleteTask(in);
+				break;
+			case 6:
+				viewInCompleteTasks();
 				break;
 			case 99:
 				in.close();
