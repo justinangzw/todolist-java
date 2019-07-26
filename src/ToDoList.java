@@ -53,4 +53,15 @@ public class ToDoList
 		
 		
 	}
+	
+	public Collection<Task> getInCompleteTasks()
+	{
+		HashMap<String, Task> iComplTasks = new HashMap<String, Task>(tasks);
+
+		for (Task t : iComplTasks.values())
+			if (t.isComplete())
+				iComplTasks.remove(t.getDescription());
+
+		return iComplTasks.values();
+	}
 }
